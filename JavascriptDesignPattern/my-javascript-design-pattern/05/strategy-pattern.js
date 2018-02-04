@@ -92,7 +92,10 @@ console.log("=====5.2-使用javaScript版本的策略模式=====");
   console.log(calcBouns('outputLevelB', 8000));
 
 })();
-
+/**
+ * [description]
+ * 策略模式 封装动画实现
+ */
 (function() {
 
   var tween = {
@@ -135,11 +138,11 @@ console.log("=====5.2-使用javaScript版本的策略模式=====");
   };
 
   Animate.prototype.start = function(propertyName, endPos, duration, easing) {
-    this.startTime = + new Date(); // 当前时间的毫秒值
+    this.startTime = + new Date(); // 当前时间的毫秒值 => 动画启动时间
     this.startPos = this.dom.getBoundingClientRect()[propertyName]; // 返回元素的大小及其相对于视口的位置。
-    this.propertyName = propertyName;
     this.endPos = endPos;
     this.duration = duration;
+    this.propertyName = propertyName;
     this.easing = tween[easing];
 
     var self = this;
@@ -152,12 +155,16 @@ console.log("=====5.2-使用javaScript版本的策略模式=====");
   };
 
   Animate.prototype.step = function() {
-    var t = + new Date();
+    var t = + new Date(); // 当前时间
+    //说明小球已经停止运动了
     if (t >= this.startTime + this.duration) {
       this.update(this.endPos);
       return false;
     }
+    // console.log(this.easing);
+    // 动画已消耗的时间(在start中以获取到动画启动时间), 小球原始位置, 小球目标位置(相减因为，起始位置有值)，动画持续的总时间
     var pos = this.easing(t - this.startTime, this.startPos, this.endPos - this.startPos, this.duration);
+    // console.log(pos)
     this.update(pos);
   };
 
@@ -167,11 +174,80 @@ console.log("=====5.2-使用javaScript版本的策略模式=====");
 
   var div = document.getElementById('div');
   var animate = new Animate(div);
-  animate.start('left',1000, 3000, "strongEaseOut");
+  animate.start('left', 1000, 3000, "strongEaseOut");
 
-  // 2324356
-  //
 })();
+
+console.log("======== 5.6 策略模式实现表单验证 ========");
+(function() {
+
+  var strategies = {
+    isNoEmpty: function(value, errMsg) {
+      if (value === '') {
+        return errMsg;
+      }
+    },
+    minLength: function(value, length, errMsg) {
+      if (value.length < length) {
+        return errMsg;
+      }
+    },
+    isMobile: function(value, errMsg) {
+      if (!/(^1[3|5|8][0-9]{9}$)/.test(registerForm.phoneNumber.value)) {
+        return errMsg;
+      }
+    }
+  };
+
+  var validatFunc = function() {
+    var validator = new Validator();
+    validator.add(registerForm.userNmae, 'isNoEmpty', '用户名不能为空');
+    validator.add(registerForm.password, 'minLength:6', '密码长度不能少于6位');
+    validator.add(registerForm.phoneNumber, 'isMobile', '手机格式不正确');
+
+    var errMsg = validator.start();
+    return errMsg;
+  };
+
+  var registerForm = document.getElementById('registerForm');
+  registerForm.onsubmit = function(){
+    var errMsg = validatFunc();
+    if(errMsg){
+      alert(errMsg);
+      return false;  // 阻止表单提交
+    }
+  };
+
+
+
+  var Validator = function() {
+    this.cache = [];
+  };
+
+  Validator.prototype.add = function(dom, rule, erroMsg) {
+    var ary = rule.split(':');
+    this.cache.push(function() {
+      var strategy = ary.shift();
+      ary.unshift(dom.value);
+      ary.push(erroMsg);
+      return strategies[strategy].apply(dom, ary);
+    });
+  };
+
+  Validator.prototype.start = function() {
+    for (var i = 0, validatFunc; validatFunc = this.cache[i++];) {
+      var msg = validatFunc();
+      if (msg) {
+        return msg;
+      }
+
+    }
+  };
+
+})();
+
+(function() {})();
+(function() {})();
 (function() {})();
 
 /**
