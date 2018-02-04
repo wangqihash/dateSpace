@@ -169,7 +169,8 @@ console.log("=====5.2-使用javaScript版本的策略模式=====");
   var animate = new Animate(div);
   animate.start('left',1000, 3000, "strongEaseOut");
 
-
+  // 2324356
+  //
 })();
 (function() {})();
 
