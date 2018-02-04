@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>01-es6</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+  // es6 let 和 var 区别
+  (function() {
+    var a = [];
+    for (var i = 0; i < 10; i++) {
+      a[i] = function () {
+        // console.log(i);
+      };
+    };
+    a[3]();
+
+    for (let j = 0; j < 3; j++) {
+      // console.log('j:', j);
+    };
+    // console.log(j);
+
+
+  })();
+
+    // 给字符串加千分符
+  (function() {
+
+    //正则方法
+
+    // var str = '112345432';
+    //   function spli(str){
+    //       var re = /(?=(?!\b)(\d{3})+$)/g;
+    //       return str.replace(re,',');
+    //   }
+    // console.log(spli(str));
+
+    // 普通方法
+    var str = '1234567899';
+
+    function spli(str) {
+      var frontStr = '';
+      var tmp = '';
+      var arr = [];
+      var index = 0;
+      var num = str.length % 3;
+      if (num !=0) {
+        frontStr = str.slice(0, num);
+        arr.push(frontStr);
+      };
+
+      str = str.slice(num); // 这里内部就改变了 str值了
+      for(var i = 0; i < str.length; i++) {
+        index++;
+        tmp += str[i];
+        if (index == 3 && tmp) {
+          arr.push(tmp);
+          tmp = "";
+          index = 0;
+        }
+      }
+      // console.log(arr,"arr");
+      return arr.join(",")
+    };
+
+    // console.log(spli(str));
+
+  })();
+  // 封装思想
+  (function() {
+    window.onload = function () {
+      var obj = {
+        obj:'idName',
+        nowNum: 7,
+        allNum: 10,
+        callBack: pageCall
+      };
+      page(obj);
+    };
+
+    function pageCall() {
+      console.lgo('点击页码后的响应');
+    };
+
+    function page(obj) {
+       var nowNum = obj.nowNum || 1;
+       var allNum = obj.allNum || 5;
+       var pageCall = obj.callBack || function(){};
+       console.log(nowNum,allNum)
+    }
+
+  })();
+
+
+
+
+  </script>
+</html>

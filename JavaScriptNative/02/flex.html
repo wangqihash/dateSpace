@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>flex</title>
+  <style media="screen">
+    ul li {
+      list-style-type: none;
+    }
+
+    .container {}
+
+    ul {
+      height: 200px;
+      background: yellow;
+
+      display: flex;
+      flex-direction: row;
+
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      align-content: flex-end;
+
+    }
+
+    li {
+      width: 50px;
+      height: 50px;
+      background: pink;
+      <!-- float: left;
+      -->
+      margin: 10px;
+      text-align: center;
+      line-height: 50px;
+      <!-- flex: 1;
+      -->
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <ul>
+      <li>3</li>
+      <li>3</li>
+      <li>3</li>
+      <li>3</li>
+      <li>1</li>
+    </ul>
+    <ul>
+      <li>3</li>
+      <li>3</li>
+      <li>3</li>
+      <li>3</li>
+      <li>3</li>
+    </ul>
+  </div>
+
+</body>
+<script type="text/javascript" src="src/flex.js">
+</script>
+
+</html>

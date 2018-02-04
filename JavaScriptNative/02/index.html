@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript" src="src/index.js">  </script>
+  <script type="text/javascript">
+      (function(){
+        /**
+         * [num description]
+         * java 中的位运算符
+         */
+        var num = 19.9;
+        var intNum = num | 70;
+        // var intNum = num | 1;
+        // console.log(intNum);
+      })();
+
+      (function() {
+          function func() {
+            var obj = {name: 'wq'};
+            return obj
+          };
+
+          function startFunc() {
+             return func()
+          };
+        // console.log(startFunc());
+
+
+
+
+      })();
+
+      (function() {
+        var arr = [3,1,4,2,5,21,6,15,63];
+        function sortA(){
+            for(var i=0;i<arr.length-1;i++){
+                for(var j=i+1;j<arr.length;j++){
+                    var cur = arr[i];
+                    if(cur>arr[j]){
+                        var index = arr[j];
+                        arr[j] = cur;
+                        arr[i] = index;
+                    }
+                }
+            }
+            return arr;
+        };
+        // console.log(sortA(arr));
+
+        function startFunc(sortA, arr) {
+            var startTime = new Date().getTime();
+            // console.log(startTime, "start");
+            sortA(arr);
+            var endTime = new Date().getTime();
+            // console.log(endTime, "end")
+            return endTime - startTime
+        };
+        // console.log(startFunc(sortA), "Test");
+
+
+      })();
+
+
+      (function() {
+        //返回一个新的数组
+        var arr = [23, 56, 78, 12, 45];
+        // let func = () => {}
+        // let newArr = arr.filter((i) => { return i >= 23 })
+        let newArr = arr.filter(function(i) {
+          // console.log(i)  // 数组中的每个元素
+          return i != 23
+        })
+
+        // console.log(arr, "arr");
+        <!-- console.log(newArr, "newArr"); -->
+
+
+
+
+      })();
+  </script>
+</html>

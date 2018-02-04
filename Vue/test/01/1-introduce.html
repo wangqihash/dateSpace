@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>introduce- vue2</title>
+</head>
+
+<body>
+  <div class="" id="app">
+    {{messages}}
+  </div>
+
+  <div class="introduce-bind">
+    <span v-bind:title="message">
+       鼠标悬停几秒钟查看此处动态绑定的提示信息！/存在 new Vue() 嵌套以那个data为准？
+    </span>
+  </div>
+
+  <div class="introduce-if">
+    <p v-if="seen">切换是否显示</p>
+  </div>
+
+  <div class="introduce-for">
+    <ul>
+      <li v-for="todo in todos">{{todo.sname}} {{todo.age}} {{todo.job}} {{todo.test}}</li>
+    </ul>
+  </div>
+
+
+  <div class="introduce-on">
+    <p>{{message}}</p>
+    <button type="button" v-on:click="reverseMessage">点击消息</button>
+  </div>
+
+  <div class="introduce-model">
+    <p>{{message}}</p>
+    <input type="text" name="" value="" v-model="message">
+  </div>
+
+  <div class="introduce-component">
+    <ul>
+      <todo-item
+        v-for= "item in groupList"
+        v-bind:key="item.id"
+        v-bind:todo="item"
+      >
+      </todo-item>
+    </ul>
+  </div>
+
+
+
+
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script type="text/javascript" src="1-introduce.js">
+</script>
+
+</html>

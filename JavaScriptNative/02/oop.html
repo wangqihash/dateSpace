@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>面向对象->继承理解</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+    // Object.create
+    /**
+     * [description]
+     *  本来通过 obj.call(this) => 这样只是将父对象的 实例属性[自有属性],
+     *  而通过 Object.create(proto) 创建一个新的对象, 从而实现了继承
+     */
+    (function() {
+
+      function Shape() {
+        this.x = 0;
+        this.y = 1;
+      };
+      Shape.prototype.move = function() {
+        console.log("this is Shape");
+      };
+
+      function Func() {
+        Shape.call(this);
+      };
+
+      Func.prototype = Object.create(Shape.prototype);
+      Func.prototype.constructor = Func;
+      var func = new Func();
+
+      func.move()
+      console.log(func, "func");
+
+
+    })();
+    /**
+     * [description]
+     * 对象的 属性方法 详解
+     * http://blog.csdn.net/panying0903/article/details/50246091
+     *
+     *  静态属性/方法 => 无需实例化就可以调用的方法叫静态方法 [属性同理]
+     */
+    (function() {
+
+      var a = function() {
+        var wq = "私有属性";
+        this.x = "实例属性";
+
+        a.attribute = "静态属性";
+        a.attributeFunc = function(){ return "静态方法+"};
+      };
+      a.x = "静态属性/类属性"; // => 只能通过 函数名/类名 以 点 的形式访问
+      a.prototype.wqProto = "原型属性";
+
+      console.log(a.x, "ccc");
+      var t1 = new a();
+      console.log(a.x, "ddd");
+      t1.sname = "wq";
+
+      var t2 = new a();
+      // console.log(t1, t2)
+      console.log(a.attributeFunc())
+    })();
+
+
+  </script>
+</html>

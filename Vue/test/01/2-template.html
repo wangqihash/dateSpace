@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>template-test</title>
+</head>
+
+<body>
+  <div class="template-once">
+    <span>{{message}}</span>
+  </div>
+
+  {{message}}
+
+  <div class="template-html">
+    <span v-bind:id="id">{{message}}</span>
+    <div>
+      xxxx： <p v-html="message"> </p>
+    </div>
+  </div>
+
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script type="text/javascript" src="2-template.js">
+</script>
+
+</html>
