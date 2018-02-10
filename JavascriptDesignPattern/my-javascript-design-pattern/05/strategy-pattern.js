@@ -180,7 +180,6 @@ console.log("=====5.2-使用javaScript版本的策略模式=====");
 
 console.log("======== 5.6 策略模式实现表单验证 ========");
 (function() {
-
   var strategies = {
     isNoEmpty: function(value, errMsg) {
       if (value === '') {
@@ -210,15 +209,13 @@ console.log("======== 5.6 策略模式实现表单验证 ========");
   };
 
   var registerForm = document.getElementById('registerForm');
-  registerForm.onsubmit = function(){
+  registerForm.onsubmit = function() {
     var errMsg = validatFunc();
-    if(errMsg){
+    if (errMsg) {
       alert(errMsg);
-      return false;  // 阻止表单提交
+      return false; // 阻止表单提交
     }
   };
-
-
 
   var Validator = function() {
     this.cache = [];
@@ -246,7 +243,16 @@ console.log("======== 5.6 策略模式实现表单验证 ========");
 
 })();
 
-(function() {})();
+(function() {
+  /**
+   *  apply call 的使用
+   *  apply call 都是来自 Function.prototype.apply  Function.prototype.call
+   *  接收两个参数 => func.apply(指定函数func体内的this对象指向, 集合)
+   *
+   */
+
+
+})();
 (function() {})();
 (function() {})();
 
