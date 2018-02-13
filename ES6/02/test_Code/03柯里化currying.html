@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>柯里化函数 Curring</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+      function factorial(n, total = 1) {
+        if (n === 1) { return total };
+        return factorial(n - 1, n * total);
+      }
+      console.log(factorial(5));
+  </script>
+</html>

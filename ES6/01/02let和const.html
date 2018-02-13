@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Function</title>
+  </head>
+  <body>
+    <ul class="list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+  </body>
+  <script type="text/javascript">
+
+
+
+      (function(){
+          function foo(x, y = 8){
+              var sname = "wq";
+              let sage = 12;
+              this.x = x;
+              this.y = y;
+              // console.log(x);
+              // console.log(y);
+              // return " "
+          };
+          // foo(2,3);
+          // foo(2);
+          // console.log(foo())
+          // console.log(sname);
+          // console.log(sage);
+          var Foo = new foo(1);
+          // console.log(Foo);
+      })();
+
+      (function(){
+
+          var a = [];
+          for (var i = 0; i < 10; i++) {
+              a[i] = function () {
+                // console.log(i);
+              };
+          }
+          a["0"](); // 10
+
+      })();
+
+      (function(){
+          for (let i = 0; i < 3; i++) {     // 说明 es6 中的 for 循环有 两层作用于 设置变量的为 父级 内部为 子级 相互不影响
+              let i = 'abd';
+              //var  ii = 'abc';
+              // console.log(i);
+          }
+            //还有就是，当断网时， onerror函数 处理弹框能触发，可是 当网络恢复时，通过手动刷新，（不知道怎么重连）还是会出现一次弹框，（但是数据都过来了）
+      })();
+
+
+        {
+          let sjob = "codding";
+          // console.log(sjob);
+          {
+              let ssge=12;
+              // console.log("nianji");
+          }
+          // console.log(sage);
+        }
+
+        {
+          let sname="wq";
+          // console.log(sname);
+        }
+
+
+
+      {
+        var tem = 123;
+        if(true){
+          // let func = function(){console.log("1")};
+          // func();
+          //
+          // tem = 'abc';
+          // let  tem;
+
+        }
+      }
+
+      //  let的声明变量提升？
+      {
+        /**
+         *  let 的 创建 过程被提升了，但是初始化没有提升    const 的区别在于他没有赋值过程（他是常量）
+         *  var 创建 和 初始化 都被提升了
+            fuction 「创建」「初始化」和「赋值」都被提升了
+         *  理解在于： var 没值的时候 是undefined 这过程叫做 创建 let 则为报错  当给了值 这叫做初始化 再次改变是叫做赋值，
+         */
+        // console.log(x);
+        let x = 1;
+        x = 2;
+      }
+
+
+      //循环作用域问题
+      {
+        // var list = document.getElementsByClassName('list')[0].childNodes;
+        var list=document.getElementsByTagName("li");
+        for(var i = 0; i < list.length; i++){
+          (function(i){
+            list[i].onclick=function(){
+                // console.log(i)
+            }
+          })(i)
+        }
+
+
+        // for(let i = 0; i < list.length; i++){
+        //    let i = i;
+        //     list[i].onclick=function(){
+        //         console.log(i)
+        //     }
+        // }
+
+      }
+
+      {
+          // var x = 11;
+          // var x = x;
+          // console.log(x);
+          let x = 11;
+          x = x;
+          console.log(x)
+
+
+
+      }
+
+
+
+  </script>
+</html>

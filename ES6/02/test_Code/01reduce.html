@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Reduce 方法</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+
+    {
+      let arr = ['name', 'job', 'age1'];
+
+      arr.reduce(function(pre, cur, index, ca){
+        // console.log(rest, 'res');
+        // console.log(arguments, 'res');
+        // console.log(pre);
+        // console.log(cur);
+        // console.log(index);   // 表示的是 除第一个参数以外的下标
+        // console.log(ca);
+        return ''
+
+
+      })
+    }
+
+    {
+      let arr = ['name', 'job', 'age1'];
+
+      let arrFilter = arr.filter(function(item){
+        // console.log(arguments, 'filter');
+        return item == 'name'
+      })
+      // console.log(arrFilter);
+
+    }
+
+    {
+      let arr = ['name', 'job', 'age1'];
+
+      arr.map(function(){
+          // console.log(arguments, 'map');
+          return
+        // 和上边 filter用法效果一样
+      })
+    }
+
+    {
+      let arr = ['name', 'job', 'age1'];
+
+      arr.every(function(){
+        // console.log(arguments, 'every');
+      })
+    }
+
+    {
+      let arr = ['name', 'job', 'age1'];
+
+      arr.some(function(){
+        // console.log(arguments, 'some');
+        // 雷同 filter map
+      })
+
+    }
+
+    // ================================================================
+
+    //reduce(从左到右累加)  => 对数组中的所有元素调用指定的回调函数。该回调函数的返回值为累积结果，并且此返回值在下一次调用该回调函数时作为参数提供。
+
+    {
+          /*
+              reduce方法理解  => http://www.cnblogs.com/linsx/p/6796888.html
+                reduce(callBack(prev, cur, index, arr), [initPrev])
+                  prev: 第一项的值或者上一次叠加的结果值
+                  cur: 当前会参与叠加的项
+                  index： 当前值的索引
+                  arr: 数组本身
+
+                  **当 有第二个参数时， 其值会传递给 prev prev的值是每次叠加后的结果,
+                  * 没有时 => 数组中的第一个值 会填充 prev
+                  **当 数组嵌套对象这种格式， reduce 必须存在第二个参数，否则不起作用，其他的遍历方法不需要。
+           */
+
+          let state = [
+            {
+              text: 'Use Redux',
+              completed: false,
+              id: 0,
+            },
+            {
+              text: 'Nouse Redux',
+              completed: true,
+              id: 1,
+            },
+
+
+          ];
+
+          // let wq = state.reduce((maxId, todo) => Math.max(todo.id, maxId), -8)
+          // let wq = state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1
+
+        let wq = state.reduce(function(maxId, todo){
+            // console.log(arguments)
+            return Math.max(todo.id, maxId)
+        },-1);
+
+        // console.log( wq );
+
+    }
+
+    {
+      const initialState = [
+        {
+          text: 'Use Redux',
+          completed: false,
+          id: 0,
+        },
+      ];
+      initialState.filter(function(){
+        console.log(arguments,"-")
+      })
+
+    }
+
+  </script>
+</html>

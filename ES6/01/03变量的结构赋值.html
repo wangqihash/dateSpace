@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>02变量的结构赋值</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+
+      {
+          let [a, b, c] = [1, 2, 3];
+          // console.log(a);
+      }
+
+      {
+          let [x, y, ...z] = ['a'];
+          // console.log(z)
+
+          let [ a = 1 ] = [ undefined ];  // es6 采用的是全等的方式 判断 是否使用默认值
+          // console.log( a );
+      }
+
+      {
+          function f() {
+            // console.log('aaa');
+            return "";
+          }
+
+          // let [x = f()] = [1];
+          let [x = f()] = [ undefined ];
+          // console.log(x)
+      }
+
+
+      {//对象结构
+          // 对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；
+          // 而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
+
+        const { name, age } = { age: "wq", name:12  };
+        // console.log(name);
+        // console.log(age);
+        let obj = { first: 'hello', last: 'world' };
+        let { first: f, last: l } = obj;       // 注意对象结构时的 变量名与属性名不一致情况
+                                              //  first 是匹配的模式，f 才是变量。真正被赋值的是变量 f，而不是模式 first。
+        console.log(f)                        // => 像这种不同的 在赋值时 要注意
+
+      }
+
+      {
+        let obj = {
+          q:"qqqq",
+          p: [
+            'Hello',
+            { y: 'World' }
+          ]
+
+        };
+        let { q, p: [x, { y }] } = obj;
+        // console.log(q);     // 这种结构 并不是会 彻底的遍历 ,只是满足匹配 首次 匹配上的那一夜部分 而后的就不管了
+        // console.log(p);
+
+      }
+
+      {
+          function example() {
+            return {
+              foo: 1,
+              bar: 2
+            };
+          }
+
+          let { foo, bar } = example();
+          // let  obj  = example();
+          // console.log(foo,bar)
+          // console.log(obj)
+      }
+
+
+
+
+
+  </script>
+</html>

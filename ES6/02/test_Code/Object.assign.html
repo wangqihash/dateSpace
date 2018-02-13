@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object.assign</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+      {
+        let obj = { a: 1 };
+        var copy = Object.assign({}, obj);
+        // console.log(copy);
+      }
+
+      {
+        let obj1 = { name: 'wq'  };
+        let obj2 = { age: '11'  };
+        let obj3 = { sex: '男'  };
+        var copy = Object.assign(obj1, obj2, obj3);
+        // console.log(Object.assign({}, obj2, obj3));
+        // console.log(copy);
+
+      }
+
+      {
+          const {
+            isFetching,
+            items: []
+           } = {
+            isFetching: true,
+            items: []
+          }
+
+          // console.log(isFetching);
+          // console.log(items);
+          // console.log(wq);
+      }
+
+      {
+        let { filter } = { filter: 'show_all' };
+        console.log({filter});
+        console.log(filter)
+      }
+  </script>
+</html>

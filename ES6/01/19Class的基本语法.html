@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>19Class的基本语法</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+      {
+        let toValues = "toValue";
+        class Point{  // 定义类 === 定义构造函数
+            constructor(x, y){   //  除构造函数外 的方法，一律还是挂载在 prototype 上的
+              this.x = x;
+              this.y = y;
+            }
+            // toString(){ console.log("is toString") }
+            [toValues](){ //  类的属性名，可以采用表达式。
+              //  console.log( "is toValue" )
+               return ""
+             }
+        }
+        let point = new Point(1,2);  // 使用类 这里和es5中的用法一致
+        // console.log( point );
+
+      }
+
+      {
+        // es6的立即执行函数   !!注意的是 如要 生成实例 就要 new 这也是 构造函数 和 普通函数 的区别
+        let person = new class{
+          constructor( name ){
+            this.name = name;
+          }
+          toName(){
+            // console.log(`is myName `+ this.name);
+          }
+
+        }("wq")
+        person.toName();
+
+      }
+
+      {
+        // 理解 es6继承和react定义组件的关系
+        let Foo = class{
+          constructor(x){
+            this.x = 1
+            //toFunc(){  }  //  es6 的构造函数中不能写函数方法
+                            // 对于区分 公私有 方法 不想es5中的 原型共有 而是 _toFunc(){} 变通区分
+          }
+          // toName(){ console.log( `pulic` ) };
+          // _toName(){ console.log( `_self` ) };
+
+        };
+        class Bar extends Foo{}
+        // console.log( new Bar() );
+
+      }
+
+      {
+          //关于es6 中的 this 指向
+          class Logger{
+            constructor(){
+              console.log(this);
+              // this.printName = this.printName.bind(this)   // 这里用 bind(this) 来指向当前类
+              this.printName = (name = 'wq')=>{             // 因 箭头函数中不存在 this 所以他会向上找，找到 该类的
+                this.print(`Hello ${name}`)
+                return ""
+              }
+
+            }
+            printName(name = 'wq'){ //这里的 this 默认指向 该类本身, 但是将改方法提取出来单独用，this会指向运行时的环境
+                this.print(`Hello ${name}`) //所以需要 来 改变 this
+                return ""
+            }
+            print(text){
+              console.log(text)
+            }
+          }
+          const logger =new Logger();
+          console.log( logger.printName() );
+          const { printName } = logger;
+          // console.log( printName )
+          printName()
+
+
+      }
+  </script>
+</html>

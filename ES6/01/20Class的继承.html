@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>20Class的继承</title>
+  </head>
+  <body>
+
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.4.4/babel.min.js"></script> <script type="text/babel">
+  <script type="text/javascript">
+      {
+        class Point{
+          constructor(x, y){
+            this.x = x;
+            this.y = y;
+          }
+        }
+        class PointChild extends Point{
+          constructor(x, y, job){
+            super(x, y);      //  在 constructor中 调用 super() 目的在是
+                              // 子类没有自己的 this对象,而是继承父类的this如果不调 子类就得不到this 这里也改变了 this这指向，变成了子类
+            // console.log(this, "PointChild");
+            this.x = x;
+            this.y = y;
+            this.job = job;
+          }
+
+        }
+        let pointperson = new Point("name", "wq");
+        // console.log(pointperson)
+        let pointChild =new PointChild()
+        // let pointChild =new PointChild("sname", "swq")
+        // console.log(pointChild)
+        // console.log(pointChild instanceof  Point)
+
+      }
+
+      {
+        /**
+         *  Class 静态方法 和 属性
+         *    类相当于实例原型，类定义的方法都会被实例继承,
+         *    加上static 后，改方法就不能被实例继承, 而是直接通过类来调用
+         */
+
+        class Foo {
+          //static propsTypes = 12;  // 静态属性 => 类的属性 而非实例的属性 所以这么些是无效的
+          constructor(){
+            //this.propsTypes = 12;    //实例属性
+            //console.log(this.propsTypes);
+          }
+          static classMethod() {
+            return 'hello';
+          };
+
+          classMethod() {
+            return 'wq'
+          }
+
+        }
+        // Foo.propsTypes = 12;
+
+        var foo = new Foo();
+          // Foo.propsTypes = 12;
+        // console.log(Foo.classMethod());
+        // console.log(foo.classMethod());
+
+        // console.log(Foo.propsTypes)
+
+
+        /**
+         *  有了新的写法以后，可以不在constructor方法里面定义。
+         *    As: =>
+         *      class ReactCounter extends React.Component {
+         *        state = { count: 0 };
+         *        static propsTypes = {};
+         *
+         *      }
+         *      ReactCounter.propsTypes = {}  // => 也可以放在函数里边写了
+         *      这种可以直接写在函数里边
+         *
+         */
+
+
+      }
+
+      {
+        class MyClass {
+          myProp = 42;
+
+          constructor() {
+            console.log(MyClass.myProp);
+          }
+        }
+
+        var myclass = new MyClass();
+        console.log(MyClass.myProp)
+
+      }
+  </script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>14Promise对象</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+    /**
+     * [promise description]
+     *  Promise 一但建立他就会立即执行，无法中途取消， 其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部
+     *
+     *
+     *
+     */
+    {
+      let wq = new Promise(function(resolve, reject) {
+        setTimeout(() => reject(new Error('fail')), 3000)
+      });
+      let promise = new Promise(function(resolve, reject) {
+
+      });
+      // console.log(promise);
+
+      promise.then(function(value){
+        // console.log("resolve",value)
+      }, function(error){})
+    }
+
+    {
+      fetch("json/14Promise.json",{
+        method:'get',
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+      }).then(function(repsonse) {
+          console.log(repsonse);
+      })
+    }
+
+
+
+
+
+
+
+
+    {
+      react + node + webSocket + mySQL + [ linux ]
+    }
+  </script>
+</html>

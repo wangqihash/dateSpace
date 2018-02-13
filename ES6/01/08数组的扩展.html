@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>08数组的扩展</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+    // 扩展运算符 刚好和 rest的用法相反
+    { //这里将数组变成 单个值的形似 来展示
+      // console.log(...[1,2,3]);
+
+      // es5
+      // var arr1 = [0, 1, 2];
+      // var arr2 = [3, 4, 5];
+      // Array.prototype.push.apply(arr1, arr2);
+      // console.log(arr1);
+
+      //es6
+      let arr1 = [0, 1, 2];
+      let arr2 = [3, 4, 5];
+      // arr1.push(...arr2);
+      // console.log(arr1);
+      // console.log([...arr1, ...arr2]);
+
+
+    }
+
+    {
+      /**
+       *  Array.from()
+       *  将 类数组对象转换成 数组对象
+       *
+       */
+
+        let likeArr = {
+          '0': 'wq',
+          '1': '12',
+          '2': 'man',
+          length: 3
+        };
+        let arr = Array.from(likeArr)
+        arr.map((ele, index, cb) => {
+          ele = ele + 1;
+          // console.log(ele)
+        })
+        // console.log(arr);
+
+    }
+
+    {
+      /**
+       *
+       * http://www.jb51.net/article/52576.htm
+       */
+
+      const context = false;
+      const wq = 2;
+      console.log( context && context );
+      // if( context && context ){
+      //     console.log(12)
+      // }else{
+      //     console.log(`xxxxxx`);
+      // }
+    }
+
+  </script>
+</html>

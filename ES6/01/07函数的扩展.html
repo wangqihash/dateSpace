@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>07函数的扩展</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+  {
+
+    function get(x, y = 1) {
+      // let y = 2;   // 注意这种 因为上边已经用了  es6 默认赋值，所以下边就不能再赋值了!!
+      // console.log(y)
+    }
+    get();
+
+  }
+
+  // 函数参数的作用域
+  {
+    /**
+     * 作用域问题：设置 默认参数时，（es6）参数会形成一个单独的作用域
+        这时 再配合就近原则来使用 就行了
+     */
+    var x = 1;
+
+    function f(x, y = x) {
+      // console.log( x, y );
+    }
+    f(2)
+
+  }
+
+  {
+    /**
+     *  这里注意的是  es6 这里其实是有三个 作用域块的 而当函数内部 没声明时，他会和参数的指针一致（首先会得到值，再赋给默认的）
+     *    如再有 函数参数 有默认值时，（最后再执行的）
+     *
+     */
+    var x = 1;
+
+    function foo(x, y = function() {
+      x = 20;
+    }) {
+      x = 3;
+      y();
+      // console.log(x);
+    }
+
+    foo() // 3
+    // console.log(x);
+  }
+
+
+  { // 结构
+    let obj = {
+      name: "wq",
+      age: 12,
+      job: "codding",
+      city: "bj"
+    };
+    let arr = ["name", "age", "job", "city"];
+    // const { name ,age ,job} = obj;
+    //const [ name ,age ,job ] = arr;
+    // console.log( name ,age ,job);
+  }
+
+  {
+    var sname = "wq";
+    let sname1 = "21";
+
+  }
+  //    rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。
+  //      这样就不需要使用arguments对象了
+  {
+    function push(array, ...items) {
+      items.forEach(function(item) {
+        array.push(item);
+        // console.log( item );
+      });
+    }
+
+    var a = [];
+    push(a, 1, 2, 3)
+    // console.log(a);
+  }
+
+  // 箭头函数
+  {
+    var getTempItem = id => ({
+      id: id,
+      name: "Temp"
+    });
+    // console.log(getTempItem);
+    let add = (a, b, ...nums) => {
+      // return
+      let ab = a + b;
+      if (ab > 5) {
+        // console.log("大于5啦");
+      }
+      if (ab < 5) {
+        // console.log(" 小于5啦 ")
+      }
+      if (nums) {
+        // console.log(nums)
+      }
+
+    }
+    add(1, 30, 1, 2, 3, 22)
+
+    // const wq =({ name, age }) => ( { return age: "wq", name:12  } );
+    // console.log(wq)
+    //
+
+    /*
+        在箭头函数中 是不存在 this 的导致内部的 this 会指向外层代码块的
+          所以也无法使用 call apply bind的方法俩改变this指向
+          所以他也不能用作构造函数来使用
+
+          这里可结合 calss中的this需要改变是 可以考虑是用箭头函数来实现，
+          因为他无this 调用的还是 外层类中的 ，一般 在 constructor中 用 bind 方法来改变就行
+
+
+     */
+
+  }
+
+  {
+    let wq = (name = "wangqi", age) => {
+      <!-- console.log(name + `==` + age) -->
+      // return name +`==`+ age
+    }
+    <!-- console.log(wq('WQ',12)); -->
+
+  }
+
+  /**
+   * 嵌套的箭头函数
+   *
+   *
+   */
+
+  {
+    function insert(value) {
+      return {
+        into: function(array) {
+          return {
+            after: function(afterValue) {
+              array.splice(array.indexOf(afterValue) + 1, 0, value);
+              return array;
+            }
+          }
+        }
+      }
+    };
+    console.log(insert(2).into([1, 3]).after(1));
+  }
+
+  {
+    let insert = (value) => ({
+      into: (array) => ({
+        after: (afterValue) => {
+          array.splice(array.indexOf(afterValue) + 1, 0, value);
+          return array;
+        }
+      })
+    });
+    console.log(insert(2).into([1, 3]).after(1));
+  }
+
+
+  /**
+   * 部署管道机制（pipeline）的例子
+   * ，即前一个函数的输出是后一个函数的输入。
+   *
+   */
+  {
+
+  }
+</script>
+
+</html>
