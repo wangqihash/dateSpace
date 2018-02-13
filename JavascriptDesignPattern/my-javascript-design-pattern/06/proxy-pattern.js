@@ -70,7 +70,79 @@ console.log("===========6.4代理的意义===========");
    *
    */
 })();
-console.log("===========6.6虚拟代理合并HTTP请求===========");
-(function() {})();
 
-(function() {})();
+console.log("===========6.6虚拟代理合并HTTP请求===========");
+(function() {
+  /**
+   *  模拟发送多次请求额情况
+   *   每选中1次checkout那么就会想服务器发送1次请求
+   *   这样太消耗带宽了，所以运用代理模式，将需要发送给服务器的请求 setTimeout后都交给代理一次性发送
+   */
+
+  var synchronousFile = function(id) {
+    console.log("开始同步 id:" + id);
+  };
+
+  var proxysynchronousFile = (function() {
+    var cache = [],
+      timer;
+    return function(id) {
+      cache.push(id);
+      if (timer) {
+        return;
+      }
+      timer = setTimeout(function() {
+        synchronousFile(cache.join(","));
+        clearTimeout(timer);
+        timer = null;
+        cache.length = 0; // 清空ID集合
+      }, 2000);
+    };
+  })();
+  // var checkouts = document.getElementsByClassName('checkouts');
+  var checkouts = document.getElementsByTagName('input');
+  for (var i = 0; i < checkouts.length; i++) {
+    var tempCheckouts = checkouts[i];
+    tempCheckouts.onclick = function() {
+      if (this.checked === true) {
+        proxysynchronousFile(this.id);
+      }
+    };
+  }
+
+})();
+
+console.log("===========6.8.1缓存代理--> 计算乘积===========");
+(function() {
+  /**
+   * 计算乘积
+   */
+  var mult = function() {
+    var arg = arguments;
+    var tempVal = 1;
+    for (var i = 0; i < arg.length; i++) {
+      tempVal = tempVal * arg[i];
+    }
+    console.log(tempVal, "mult");
+  };
+
+  var proxyMult = (function() {
+    var cache = {};
+    return function() {
+      var args = Array.prototype.join.call(arguments, ",");
+      if (args in cache) {
+        return cache[args];
+      }
+      console.log(cache, "proxyMult");
+      return cache[args] = mult.apply(this, arguments);
+    };
+
+  })();
+  // 本质上是把 proxyMult =>参数作为键名来识别[键值无意义],  mult =>专门做计算
+  proxyMult(2, 3);
+  proxyMult(2, 3);
+
+})();
+
+console.log("===========6.8.2缓存代理--> Ajax异步请求数据===========");
+(function(){})();
