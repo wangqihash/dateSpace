@@ -6,8 +6,19 @@
   <title>vueExample</title>
 </head>
 
-<body>
-  1122
+<body >
+  <div class="app">
+    {{tempData}}
+  </div>
+
+  <p>============</p>
+  <div class="app1">
+    {{tempData1}}
+    <button @click="obj.tempData1 = 'baz'">Change it</button>
+
+    <p>{{inputModel}}</p>
+    <input type="text" v-model="inputModel">
+  </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="src/vueExample.js">
