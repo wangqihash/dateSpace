@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>conditionalRendering</title>
+    <link rel="stylesheet" href="style/conditionalRendering.css">
+  </head>
+  <body>
+    <div class="app">
+      <h3>条件渲染:</h3>
+      <p>v-if:</p>
+      <p v-if="ok" v-bind:class="classObject">Yes</p>
+      <p v-else v-bind:style="styleObject">No</p>
+
+      <h4>在 template 元素上使用 v-if 条件渲染分组:</h4>
+      <template v-if="ok">
+        <h1>Title</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+      </template>
+
+      <h3>用 key 管理可复用的元素1</h3>
+      <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username">
+      </template>
+      <template v-else >
+        <label>Email</label>
+        <input placeholder="Enter your email address">
+      </template>
+      <br>
+      <button type="button" name="button" v-on:click="vClick">无key切换</button>
+
+      <h3>用 key 管理可复用的元素2</h3>
+      <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username" key="username-input">
+      </template>
+      <template v-else >
+        <label>Email</label>
+        <input placeholder="Enter your email address" key="email-input">
+      </template>
+      <br>
+      <button type="button" name="button" v-on:click="vClick">key切换</button>
+    </div>
+    <p>
+      v-if => 和 Angular中的一样 , 会创建和删除标签 ，开销较大性能较低
+      <br>
+      v-show => 只是简单的做了 css里的 display操作
+    </p>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script type="text/javascript" src="src/conditionalRendering.js">
+  </script>
+</html>

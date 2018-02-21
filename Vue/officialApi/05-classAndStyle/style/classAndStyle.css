@@ -1,0 +1,24 @@
+  .active {
+    width: 200px;
+    height: 200px;
+    background: pink;
+  }
+
+  .tempHash, .tempisHave {
+    width: 200px;
+    height: 200px;
+  }
+
+  .tempHash{
+    /* background: yellow; */
+    border: 10px solid yellow;
+  }
+  .tempisHave{
+    margin-left: 150px;
+    background: rgb(210, 95, 89);
+  }
+  .objActive{
+    width: 20px;
+    height: 20px;
+    background-color:rgb(50, 122, 184);
+  }

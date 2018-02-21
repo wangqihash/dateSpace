@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>listRendering</title>
+  </head>
+  <body>
+    <div class="app">
+      <div>
+        <h3>数组：v-for="(value, index) in items"</h3>
+          <li v-for="(item, index) in items" v-bind:key="item.id">
+            {{parentMessage}} - {{ index }} - {{item.message}} -{{item.newM}}
+          </li>
+
+      </div>
+
+      <div>
+        <h3>对象: v-for="(value, key, index) in objItems"</h3>
+        <li v-for="(value, key, index) in objItems">
+          {{key}} - {{ value }} - {{index}}
+        </li>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script type="text/javascript" src="src/listRendering.js"> </script>
+</html>

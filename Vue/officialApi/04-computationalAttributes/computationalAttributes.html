@@ -8,17 +8,32 @@
     <div class="app">
       <p>original message: "{{message}}"</p>
       <p>computed message: "{{reversedMessage }}"</p>
-      <!-- <p>computed message: "{{reversedMessage1() }}"</p> -->
+      <p>methods message: "{{reversedMessage1() }}"</p>
 
       ========
       <p>xx:  {{message}}</p>
         <p>tempClick: "{{tempClickData}}"</p>
       <button type="button" v-on:click="tempClick" name="button">btn</button>
 
+      <h3>计算属性 vs 侦听属性</h3>
+      watch使用: <input type="text" v-model="firstName">   => firstName改变
+      <div >fullName: {{fullName}}</div>
+      <div >firstName: {{firstName}}</div>
+      <br>
+       computed: <input type="text" v-model="lastName" >   => lastName改变
+       <div>lastName: {{lastName}}</div>
+
+       <h3>侦听器</h3>
+      <p>
+        Ask a yes/no question:
+        <input v-model="question">
+      </p>
+      <p>{{ answer }}</p>
     </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script type="text/javascript" src="src/computationalAttributes.js">
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+  <script type="text/javascript" src="src/computationalAttributes.js">  </script>
 
-  </script>
 </html>

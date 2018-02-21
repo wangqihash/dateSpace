@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>eventHandle</title>
+  </head>
+  <body>
+    <div class="app">
+      <h3>事件的两种调用方式:</h3>
+      <button v-on:click="greet">v-on:click="greet"</button>
+      <button v-on:click="greet('hash', $event)">v-on:click="greet('hash')"</button>
+    </div>
+
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script type="text/javascript" src="src/eventHandle.js"> </script>
+</html>

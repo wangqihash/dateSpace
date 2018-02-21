@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>classAndStyle</title>
+  <link rel="stylesheet" href="style/classAndStyle.css">
+</head>
+
+<body>
+  <div class="app">
+    <h3>绑定 HTML Class:</h3>
+    <h4>对象语法:</h4>
+    <div class="tempClass" v-bind:class="{active: isActive}"> v-bind:class="{active: bollean}</div>
+
+    <div class="" v-bind:class="classObject">
+      直接读取的是对象:<br> data:{
+      <br> classObject: { <br> tempHash: true,
+      <br> tempisHave: true, }
+      <p style="font-size:12px;">或者可通过 computed来计算属性返回对象来读取 </p>
+      }
+    </div>
+
+    <h4>数组语法:</h4>
+    <div class="" v-bind:class="[isActive ? objIsActive : '']"></div>
+
+    <h4>绑定内联样式:</h4>
+    <h3>对象语法:</h3>
+    <p v-bind:style="styleObject">
+      直接绑定到一个样式对象通常更好，这会让模板更清晰： <br>
+      v-bind:style="data:{ color:'red', fontSize:'13px'}"
+    </p>
+    <h3>数组语法:
+      用法类似
+    v-bind:style="[obj1, obj2]"
+    </h3>
+  </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript" src="src/classAndStyle.js">
+</script>
+
+</html>
