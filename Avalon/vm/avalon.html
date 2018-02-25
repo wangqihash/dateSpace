@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ms-controller="app">
+    <div class="" ms-for="el in @array">
+      {{el}}
+      <button  ms-click="@array.remove(el)" type="button" name="button">btn</button>
+
+    </div>
+    <br>
+    <span ms-text="@nmae"></span>
+     <p :class="@ccc">直接引用数组</p>
+      <span :class="[@aaa, @bbb]">使用数组字面量</span>
+      <h3>为元素添加:active效果,当元素被点击时添加几个类名, 鼠标弹起后则立即移除:</h3>
+       <p :active="@aaa">直接引用字符串</p>
+  </body>
+  <script src="node_modules/avalon2/dist/avalon.js">   </script>
+  <script type="text/javascript" src="src/avalon.js">
+
+  </script>
+
+</html>

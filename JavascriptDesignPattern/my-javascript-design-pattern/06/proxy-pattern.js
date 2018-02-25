@@ -141,9 +141,46 @@ console.log("===========6.8.1缓存代理--> 计算乘积===========");
   // 本质上是把 proxyMult =>参数作为键名来识别[键值无意义],  mult =>专门做计算
   proxyMult(2, 3);
   proxyMult(2, 3);
-  proxyMult(2, 3,4);
+  proxyMult(2, 3, 4);
 
 })();
 
 console.log("===========6.8.2缓存代理--> Ajax异步请求数据===========");
-(function(){})();
+(function() {})();
+
+console.log("===========6.9 用高阶函数动态创建代理===========");
+(function() {
+  // 乘法
+  var mult = function() {
+    var a = 1;
+    for (var i = 0; i < arguments.length; i++) {
+      a = a * arguments[i];
+    }
+    return a;
+  };
+  // 加法
+  var puls = function() {
+    var a = 0;
+    for (var i = 0; i < arguments.length; i++) {
+      a = a + arguments[i];
+    }
+    return a;
+  };
+  // 代理工厂函数  => 传入的为函数更加的灵活
+  var createProxyFactory = function(fn) {
+    var cache = {};
+    return function() {
+      var args = Array.prototype.join.call(arguments, ',');
+      if (args in cache) {
+        return cache[args]
+      };
+      return cache[args] = fn.apply(this, arguments);
+    }
+  };
+
+  var proxyMult = createProxyFactory(mult);
+  var proxyPlus = createProxyFactory(puls);
+  console.log(proxyMult(1, 2, 3, 4));
+  console.log(proxyPlus(1, 2, 3, 4));
+
+})();
