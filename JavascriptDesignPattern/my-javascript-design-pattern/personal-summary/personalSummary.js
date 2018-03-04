@@ -5,11 +5,11 @@ console.log("==========关于LZ基类的理解 ==========");
   // })
   //
   // var childView = childFunc(parentView, {
-  //   init: function(){}
+  //   init: function() {}
   // })
   //
   // var callChild = new childView();
-
+  // 
   // var tempFunc = function() {};
   // tempFunc.extendFunc = function() {
   //   console.log('tempFunc.extendFunc');
