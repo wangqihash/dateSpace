@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>components</title>
+  </head>
+  <body>
+    <div class="app">
+      <h3>全局注册 组件:</h3>
+      <my-component></my-component>
+      <!-- <my-component/> -->
+
+      <h3>局部注册 组件:</h3>
+      <local-scope></local-scope>
+
+      <h3>DOM 模板解析注意事项:</h3>
+      <table>
+        <local-scope></local-scope>
+        <tr is ="local-scope"> </tr>
+      </table>
+
+    </div>
+
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script type="text/javascript" src="src/components.js"> </script>
+</html>
