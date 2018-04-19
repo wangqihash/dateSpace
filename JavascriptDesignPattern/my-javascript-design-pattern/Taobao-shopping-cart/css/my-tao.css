@@ -1,0 +1,319 @@
+ul,input{margin:0px;padding:0px;}
+li{list-style:none;}
+a{text-decoration:none;}
+a:hover, a:visited, a:link, a:active {color:#000;}
+strong{font-weight:normal;}
+body,p{margin:0px;}
+b{font-weight:normal;}
+
+.mclear:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.triangle{
+	vertical-align:middle;
+	display:inline-block;
+	width:0px;
+	height:0px;
+	border-left:5px solid transparent;
+	border-right:5px solid transparent;
+	border-top:5px solid gray;
+}
+/*标题栏样式设置*/
+.nav{
+	background:#f5f5f5;
+	height:45px;
+	width:100%;
+}
+.navs{
+	width:1260px;
+	margin:0px auto;
+}
+.nav-left ul li,.nav-right ul li{
+	float:left;
+	padding:0px 10px;
+}
+.nav-left ul li a,.nav-right ul li a{
+	font:14px/45px "微软雅黑";
+}
+.nav-left ul li:nth-child(2){
+	background:url(../img/message.png) no-repeat 2px center;
+	text-indent:8px;
+}
+.nav-right ul li:nth-child(4){
+	background:url(../img/star_gray.png) no-repeat 2px center;
+	text-indent:8px;
+}
+.nav-left ul li:hover,.nav-right ul li:hover{
+	background-color:white;
+}
+.nav-left ul li:hover a,.nav-right ul li:hover a{
+	background:white;
+	color:red;
+}
+.nav-right ul li:nth-child(4):hover{
+	background:url(../img/star-orange.png) no-repeat 2px center;
+	text-indent:8px;
+	background-color:white;
+}
+
+
+/*内容区样式设置*/
+.content{
+	width:1260px;
+	margin:0px auto;
+}
+/*搜索栏样式设置*/
+.header{
+	padding:20px 0px;
+}
+.search-box{
+	border:3px solid red;
+	float:right;
+	height:30px;
+	position: relative;
+}
+.search-box li{
+	height:30px;
+}
+.search-info{
+	padding:0px 10px;
+	background-color:#f5f5f5;
+	font:14px/30px "Sans-serif";
+	cursor: pointer;
+}
+.search-info span{
+	letter-spacing:8px;
+}
+.search-srouce{
+	width:78px;
+	position: absolute;
+	left:0;
+	top: 30px;
+	display: none;
+}
+.search-srouce li{
+	background-color: #ffffff;
+	letter-spacing:8px;
+	font:14px/30px "Sans-serif";
+	padding:0px 10px;
+}
+.search-input{
+	width:360px;
+	border:none;
+	height:30px;
+}
+.search-submit{
+	font:20px/30px "Sans-serif";
+	padding:0px 10px 0px 20px;
+	background-color:red;
+	border:none;
+	color:white;
+	letter-spacing:8px;
+	cursor: pointer;
+}
+/*设置linebox样式*/
+.linebox{
+	border-bottom:3px solid lightgrey;
+	margin-bottom:20px;
+}
+.money-info,.classify{
+	height:40px;
+}
+.classify a{
+	padding:10px 20px;
+	font:14px/40px "微软雅黑";
+}
+.classify-notice{
+	border-bottom:3px solid red
+}
+.classify a strong,.money-info strong{
+	padding:0px 6px;
+	color:red;
+	font:16px "微软雅黑";
+}
+.classify a:hover{
+	border-bottom:3px solid red;	
+}
+.money-info span{
+	font:14px "微软雅黑";
+}
+.money-info a{
+	background:red;
+	font:16px/40px "微软雅黑";
+	padding:4px 8px;
+	color:white;
+	border-radius:10%;
+}
+/*设置商品操作列表样式*/
+.section-bar li{
+	font:12px/30px "微软雅黑";
+	float:left;margin:0px 80px 20px 20px;
+}
+.section-bar li label input{
+	vertical-align:middle;
+}
+.section-bar li:nth-child(3){
+	margin:0px 240px 0px 200px;
+}
+
+/*设置商家栏样式*/
+#item-list{
+	margin-bottom:60px;
+}
+.merchant-info{
+	margin:15px 20px 10px;
+}
+.merchant-info input:nth-child(1){
+	vertical-align:middle;
+}
+.merchant-info span:nth-child(2){
+	font:14px/16px "微软雅黑";
+}
+.merchant-info span:nth-child(3){
+	font:14px/16px "宋体";
+}
+.merchant-info img:nth-child(4){
+	vertical-align:middle;
+}
+.merchant-info span:nth-child(3):hover{
+	color:red;
+	text-decoration:underline;
+}
+/*设置对应商品样式*/
+.goods-info{
+	border:1px solid gray;
+	background:#f5f5f5;
+	margin:-1px 0px;
+}
+.goods-info div{
+	margin:20px 0px;
+}
+.goods-info div:nth-child(1) input{
+	margin-left:30px;
+	vertical-align:top;
+}
+.goods-info div:nth-child(1) img{
+	margin-right:30px;
+}
+.goods-info div:nth-child(2){
+	width:300px;
+	height:80px;
+	margin-right:20px;
+	font:12px/16px "微软雅黑";
+	position:relative;
+}
+.goods-info div:nth-child(2) a:hover{
+	color:red;
+	text-decoration:underline;
+}
+.goods-info div:nth-child(2) span{
+	position:absolute;
+	left:0px;
+	bottom:0px;
+}
+.goods-info div:nth-child(3){
+	width:210px;
+	margin-right:20px;
+	font:12px/16px "微软雅黑";
+}
+.goods-info div:nth-child(4) p{
+	width:100px;
+	font:12px/16px "微软雅黑";
+	text-align:center;
+	margin-right:30px;
+}
+.goods-info div:nth-child(4) p{
+	font-weight:bold;
+}
+.goods-info div:nth-child(5){
+	width:120px;
+	margin-right:20px;
+}
+.goods-info div:nth-child(5) input:first-child,.goods-info div:nth-child(5) input:last-child{
+	background:lightgray;
+	vertical-align:middle;
+	width:26px;
+	height:26px;
+	border:1px solid lightgray;
+	cursor: pointer;
+}
+.goods-info div:nth-child(5) input{
+	width:40px;
+	height:24px;
+	text-align:center;
+	padding:0px;
+	border:1px solid darkgray;
+	vertical-align:middle;
+	outline:none;
+}
+.goods-info div:nth-child(6){
+	width:60px;
+	text-align:center;
+	color:red;
+	font-weight:bold;
+	margin-right:80px;
+	font:12px/16px "微软雅黑";
+}
+.goods-info div:nth-child(6) strong{
+	font-weight:bold;
+}
+.goods-info div:nth-child(7){
+	width:60px;
+	font:12px/16px "微软雅黑";
+}
+.goods-info div:nth-child(7) p{
+	padding:2px 0px;
+}
+.goods-info div:nth-child(7) p:hover a{
+	color:red;
+	text-decoration:underline;
+}
+/*设置结算条样式*/
+.settlebar{
+	position:fixed;
+	bottom:0;
+	width:1260px;
+	background:lightgray;
+	margin:20px 0px 0px;
+}
+.stbleft,.stbright{
+	padding:10px 0px;
+	font:14px/20px "宋体";
+}
+.stbleft label{
+	margin:0px 10px;
+	vertical-align:middle;
+}
+.stbleft a{
+	margin:0px 10px;
+	vertical-align:middle;
+}
+.amount-sum{
+	margin:0px 30px;
+	vertical-align:middle;
+}
+.price-sum{
+	margin:0px 10px;
+	vertical-align:middle;
+}
+.price-sum strong,.amount-sum strong{
+	font-weight:bold;
+	color:red;
+	font-size:16px;
+}
+#submit-sum{
+	width:100px;
+	border:none;
+	background:red;
+	height:42px;
+	font-size:20px;
+	color:white;
+}

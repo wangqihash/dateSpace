@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+		<title>淘宝网，我的购物车</title>
+		<link  type="text/css" rel="stylesheet" href="css/my-tao.css"/>
+	</head>
+	<body>
+		<nav class="nav">
+			<div class="navs mclear">
+				<div class="nav-left fl">
+					<ul >
+						<li>
+							<a href="javascript:void(0);">大胡子先生</a>
+							<div class="triangle"></div>
+						</li>
+						<li>
+							<a href="javascript:void(0);">消息</a>
+							<div class="triangle"></div>
+						</li>
+						<li><a href="javascript:void(0);">手机逛淘宝</a></li>
+					</ul>
+				</div>
+				<div class="nav-right fr">
+					<ul>
+						<li><a href="javascript:void(0);">淘宝网首页</a></li>
+						<li>
+							<a href="javascript:void(0);">我的淘宝</a>
+							<div class="triangle"></div>
+						</li>
+						<li>
+							<a href="javascript:void(0);">购物车</a>
+							<div class="triangle">
+								
+							</div></li>
+						<li>
+							<a href="javascript:void(0);">收藏夹</a>
+							<div class="triangle">
+								
+							</div></li>
+						<li><a href="javascript:void(0);">商品分类</a></li>
+						<li>
+							<a href="javascript:void(0);">卖家中心</a>
+							<div class="triangle">
+								
+							</div></li>
+						<li>
+							<a href="javascript:void(0);">联系客服</a>
+							<div class="triangle"></div>
+						</li>
+						<li>
+							<a href="javascript:void(0);">网站导航</a>
+							<div class="triangle"></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="content">
+			<header class="header mclear">
+				<div class="t-pic fl">
+					<a href="javascript:void(0);"><img src="img/taobao-icon.png" /></a>
+				</div>
+				<div class="search-box fr maclear">
+					<ul>
+						<li class="search-info fl">
+							<span>宝贝</span>
+							<div class="triangle"></div>
+							<ul class="search-srouce">
+								<li>天猫</li>
+								<li>店铺</li>
+							</ul>
+						</li>
+						<!--<li class="search-srouce">
+							<ul>
+								<li>天猫</li>
+								<li>店铺</li>
+							</ul>
+						</li>-->
+						<li class="fl"><input type="text" name="search-input" class="search-input" placeholder="请输入查询内容"/></li>
+						<li class="fl"><input type="button" name="submit" class="search-submit" value="搜索" /></li>
+					</ul>
+				</div>
+			</header>
+			<div class="linebox mclear">
+				<div class="classify fl">
+					<a href="#all"><b>全部商品</b><strong id="all">0</strong></a>|<!--
+					--><a href="#descprice"><b>降价商品</b><strong id="promoted">0</strong></a>|<!--
+					--><a href="#lacked"><b>库存紧张</b><strong id="locked">0</strong></a>
+				</div>
+				<div class="money-info fr">
+					<span>已选（不含运费）</span>
+					<strong class="price-total">&yen0.00</strong>
+					<a href="javascript:void(0);">结&nbsp&nbsp算</a>
+				</div>
+			</div>
+			<section class="msection">
+				<div class="section-bar mclear">
+					<ul>
+						<li><label><input type="checkbox" name="prch-li" class="choose-all" />全选</label></li>
+						<li>商品信息</li>
+						<li>&nbsp</li>
+						<li>单价</li>
+						<li>数量</li>
+						<li>金额</li>
+						<li>操作</li>
+					</ul>					
+				</div>
+				<div id="item-list">
+				</div>
+				<div class="settlebar mclear">
+					<div class="stbleft fl">
+						<label><input type="checkbox" name="prch-li" class="choose-all"/>全选</label>
+						<a href="javascript:void(0);" class='delete'>删除</a>
+						<a href="javascript:void(0);">移入收藏夹</a>
+						<a href="javascript:void(0);">分享</a>
+					</div>
+					<input type="button" class="fr" name="submit1" id="submit-sum" value="结&nbsp;&nbsp;算" />
+					<div class="stbright fr mclear">
+						<div class="amount-sum fl">
+							<span>已选商品</span>
+							<strong class='totalSum'>0</strong>
+							<span>件</span>
+						</div>
+						<div class="price-sum fl">
+							<span>合计（不含运费）：</span><!--
+							--><strong class="price-total">&yen0.00</strong>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<script type="text/javascript" src="js/data.js"></script>
+		<script type="text/javascript" src="js/fn.js"></script>
+		<script type="text/javascript" src="js/my-tao.js"></script>
+	</body>
+</html>

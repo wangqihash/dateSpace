@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- 做了首次加载main.js的处理, 对于初始化需要加载文件的处理 -->
+    <script type="text/javascript">
+        <%=
+        compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.
+        substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
+    </script>
+
+    </head>
+  <body>
+    <!-- 将会加载出main之外的js文件 -->
+    <% for (var k in htmlWebpackPlugin.files.chunks) { %>
+      <% if (k !== 'main') { %>
+        <script type="text/javascript" src="<%=
+        htmlWebpackPlugin.files.chunks[k].entry %>"></script>
+      <% } %>
+    <% } %>
+
+
+  </body>
+
+</html>

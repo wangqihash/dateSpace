@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/read.css">
+    <title>余力的博客</title>
+</head>
+
+<body>
+    <header>
+        <h1 data-scroll-reveal="enter right over 1s">YU•力の博客</h1>
+        <nav>
+            <ul class="nav-list">
+                <li>
+                    <a href="">
+                        <span>首页</span>
+                        <span class="en">home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span>关于我</span>
+                        <span class="en">about</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span>碎言碎语</span>
+                        <span class="en">Doing</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="login-btn fr login-status">登录</div>
+        </nav>
+    </header>
+    <article>
+        <div class="container">
+
+            <h2 class="detail-title">保险箱移动端之web前端基础规范</h2>
+            <div class="author">
+                <div>作者： <span class="name">admin</span>&nbsp; 发布时间：<span class="time">2017-10-27</span> </div>
+            </div>
+            <div data-note-content="" class="show-content">
+                <p><b>文件编码约定</b><br></p>
+                <p>所有文件统一采用<i>UTF-8</i>无BOM编码。</p>
+                <p><b>文件和目录命名约定</b><br></p>
+                <p><i>一律小写，必须是英文单词或者汉语拼音，以英语单词优先，多个单词以连字符 ( - ) 连接。</i>只能出现小写引文字母，数字和连字符。</p>
+                <p>很多浏览器会将含有这些词的作为广告拦截： ad、ads、adv、banner、sponsor、gg、guangg、guanggao等 页面中尽量避免采用以上词汇来命名。</p>
+                <p>该命令规范适用于所有前端维护的内容和相关目录<br></p>
+                <p><b>标签语义化 html5元素</b><br></p>
+                <p>section 表示文档中的节、区段，可以和h1-h6一起来显示文档结构</p>
+                <p>article 表示一块比较独立的内容或者主题内容，块级元素，比如blog的内容，报纸的文章</p>
+                <p>aside 表示article以外的内容，而且应该和article有一定的关系，块级元素</p>
+                <p>hgroup 表示一个文档、区段(section)的标题组合</p>
+                <p>header 表示页眉,页头</p>
+                <p>footer 表示页脚</p>
+                <p>nav 表示导航内容</p>
+                <p>figure 表示以相对独立的或外引的元素，如img video</p>
+                <p>figcaption 表示 figure内容的标题</p>
+                <p><b>id和class命名约定</b></p>
+                <p>id 和 class 的命名基本原则:<i>内容优先，表现为辅</i>。首先根据内容来命名，如:#header,#footer,.main-nav.如根据内容无法找到合适的命名，可以再结合表现进行命名，如：col-main,col-sub,col-extra,blue-box</p>
+                <p>id 和 class 的名称一律小写，多个单词以连字符连接，如：main-wrap</p>
+                <p>id 和 class 的名称只能出现，小写字母，数字和连字符( - )(js钩子除外)</p>
+                <p>id 和 class 的名称<i>尽量使用英文单词命名</i>,如确实找不到合适的单词，可以使用拼音，如：zhidao-com</p>
+                <p>在不影响语意的情况下，id 和 class 的名称 可以适当使用缩写，如:col,nav,hd,bd,fd(<i>缩写只用来表示结构，不允许写任何样式</i>)。不要自造缩写。</p>
+                <p>class 对于选中命名.selected;对于hover，支持伪类使用:hover，不支持的使用.hover，隐藏使用.hide。</p>
+                <p>id 和 class 的选择，如果只使用一次，使用id,如果使用多次使用class，如果需要和js交互，使用id,如果需要交互并且页面中有大量重复，请参见下一条。</p>
+                <p>对于作为js钩子的 id 和 class 命名规则为以”J_“开头或者以"-hook"结尾(J,象形钩子的形状)，加上原应有的命名，在使用class的时候需要放在最前面。如:class="J_tab-content
+                    some-mod-content"。（注意：钩子，不允许在css中定义任何的样式效果）</p>
+                <p>很多浏览器会将含有这些词的作为广告拦截：ad、ads、adv、banner、sponsor、gg、guangg、guanggao等 页面中尽量避免采用以上词汇来命名。</p>
+                <p><b>CSS约定</b></p>
+                <p><b>1.页面中不允许出现css内容(包括行内样式和style)</b></p>
+                <p><b>2.避免使用通配规则</b><br></p>
+                <p>除了传统意义的通配选择符之外还包括相邻兄弟选择符, 子选择符, 后代选择符和属性选择符。推荐id、class和标签选择符。</p>
+                <p><b>3.不要限定id选择符</b></p>
+                <p>页面中指定一个id只能对应一个元素，所以没有必要添加额外添加限定符，如：div#header，应该简化为：#header（<b>提权的除外</b>）。</p>
+                <p><b>4.不要限定类选择器</b></p>
+                <p>不要用具体的标签限定类选择符，而是根据实际情况对类名进行扩展。例如：ul.recommend，改成.recommend-list或者.list-recommend。</p>
+                <p><b>5.让规则越具体越好</b></p>
+                <p>尽量不要使用ul li a这样长的选择符，最好使用.list-anchor之类的选择符。</p>
+                <p><b>6.避免使用后代选择符</b></p>
+                <p>通常处理后代选择符开销最高，使用字选择符更高效，最好使用下一条代替。</p>
+                <p><b>7.避免使用标签子选择符</b></p>
+                <p>如果有如：#header &gt; li &gt; a，这样基于子标签的自选择符，那么应该使用一个class来关联每个元素如：.header-anchor。尽量使用具体的类代替子选择符。</p>
+                <p><br></p>
+                <h1>
+                    <b>JavaScript约定</b><br>
+                </h1>
+                <p><b>1.函数和<b>变量的命名</b><br></b>
+                </p>
+                <p>驼峰命名方式</p>
+                <p><b>2.常量</b><br></p>
+                <p>大写</p>
+                <p><b>3.文件注释</b></p>
+                <p>文件注释要标明作者、文件版本、创建/修改时间、重大版本修改记录<br></p>
+                <p>函数描述</p>
+                <p>文件版本、创建或者修改时间、功能、作者</p>
+                <p><b>4.在if判断中，使用===作比较,避免掉入==造成的陷阱，</b><b>对于不同类型的==判断，有这样一些规则，顺序自上而下：</b></p>
+                <p>1.undefined与null相等</p>
+                <p>2.一个是number一个是string时，会尝试将string转换为number</p>
+                <p>3.尝试将boolean转换为number，0或1</p>
+                <p>4.尝试将Object转换成number或string，取决于另外一个对比量的类型</p>
+                <p><b>简单类型转换</b><br></p>
+                <p>number to string的转换，建议使用1 + ''或String(1)，不使用new String(1)或1.toString()的方式。</p>
+                <p>string to number的转换，建议使用parseInt，必须显式指定第二个参数的进制。下面的例子展示了不指定进制的风险：</p>
+                <p>parseInt('08');// 0 &nbsp; parseInt('08',10);//8</p>
+                <p>float to integer的转换，建议使用Math.floor/Math.round/Math.ceil方法，不使用parseInt。</p>
+                <p><b>字符串拼接</b><br></p>
+                <p>字符串拼接，应使用数组保存字符串片段，使用时调用join方法。避免使用+或+=的方式拼接较长的字符串，每个字符串都会使用一个小的内存片段，过多的内存片段会影响性能。</p>
+                <p><b>零散想到的</b></p>
+                <p>img 请勿将img元素作为定位布局的工具，不要用他显示空白图片; 必要时给img元素增加alt属性;</p>
+                <p>自己写的z-index的值不能超过 100 (通用组的除外)，需要按照内容定义1 2 3 4不允许直接使用如1000，9999</p>
+                <p><br></p>
+                <p>以上如有不对之处请指出。</p>
+            </div>
+            <div class="title">
+                <b>评论</b>
+                <p>一共<span>5</span>条评论</p>
+            </div>
+            <div class="comment">
+                <div class="com-content clearfix">
+                    <textarea name=""  id="comment-id"></textarea>
+                    <div class="fr login-btn" id="comment-sub">提交</div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <footer></footer>
+    <script type="text/javascript" src="/js/read.js"></script>
+</body>
+
+</html>
