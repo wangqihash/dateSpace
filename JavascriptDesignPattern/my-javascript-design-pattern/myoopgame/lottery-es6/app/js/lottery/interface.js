@@ -66,6 +66,8 @@ class Interface{
                 },
                 dataType:'json',
                 success:function(res) {
+                    //wq: 这里的作用好像是对lottert中 promise.then()的调用
+                    //  这里的self指的就是 lottery对象 由于继承关系
                     resolve.call(self,res);
                 },
                 error:function(err) {

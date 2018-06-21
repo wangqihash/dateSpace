@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>5.5-develop-shop || 购物车示例 </title>
+  <style media="screen">
+    [v-cloak] {
+      display: none;
+    }
+
+    table {
+      border: 1px solid #e9e9e9;
+      border-collapse: collapse;
+      border-spacing: 0;
+      empty-cells: show;
+    }
+
+    th,
+    td {
+      padding: 8px 16px;
+      border: 1px solid #e9e9e9;
+      text-align: left;
+    }
+
+    th {
+      background: #f7f7f7;
+      color: #5c6b77;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <div >
+      分类选择：
+      <input id="isSeleElect" type="checkbox" @click="selectCategory('Electronics')">电子产品
+      <input id="isSeleBook" type="checkbox" @click="selectCategory('Book')">书籍
+    </div>
+    <template v-if="showDate.length">
+        <table>
+            <thead>
+              <tr>
+                <th>
+                </th>
+                <th>全选<input id="all" type="checkbox" checked @click="checkSeleAll()" ></th>
+                <th>商品名称</th>
+                <th>商品分类</th>
+                <th>商品单价</th>
+                <th>购买数量</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr v-for = "(item, index) in showDate">
+                <td>{{item.id}}</td>
+                <td>
+                  <input type="checkbox" :checked="item.check" @click="checkSeleSingle(item)">
+                </td>
+
+                <td>{{item.product}}</td>
+                <td>{{item.category}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                  <button type="button" name="button" @click="handleReduce(index)" :disabled="item.count === '1'">-</button>
+                  {{item.count}}
+                  <button type="button" name="button" @click="handleAdd(index)">+</button>
+                </td>
+                <td>
+                  <button type="button" name="button" @click="handleDele(index)">移除</button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+
+          <div >总价：￥{{totalPrice}}</div>
+      </template>
+
+    <div v-else>购物车为空！</div>
+
+  </div>
+</body>
+<script src="http://unpkg.com/vue/dist/vue.min.js"></script>
+<script type="text/javascript" src="5.5-develop-shop1.js">
+</script>
+
+</html>

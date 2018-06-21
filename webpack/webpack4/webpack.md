@@ -32,3 +32,8 @@
 
 8. webpack-dev-middleware插件 是 webpack-dev-server中也包含他
     webpack-dev-middleware可以作为一个单独的包使用，也可配合express使用
+
+
+9. webpack 中的 context作用
+     context是webpack编译时的基础目录， 入口起点entry会相对于此目录查找
+     如果没配置，默认值为当前目录

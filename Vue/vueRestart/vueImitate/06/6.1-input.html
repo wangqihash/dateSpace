@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>6.1-input</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>input</h3>
+      <!-- 当输入完后实现同步效果 -->
+      <!-- <input type="text" name="" value="" v-model="message"> -->
+
+      <!-- 实现真正同步效果 -->
+      <input type="text" name=""  @input="handleInput">
+
+      <p>{{message}}</p>
+
+
+      <h3>option</h3>
+      <select v-model="selected" multiple>
+        <option>html</option>
+        <option value="js">javascript</option>
+        <option >css</option>
+      </select>
+      <p>选择的是：{{selected}}</p>
+
+      <h3>radio => v-model绑定动态的值 例子</h3>
+      <input type="radio" name="" :value="value" v-model="message">
+      {{message}}
+      {{value}}
+    </div>
+  </body>
+  <script src="http://unpkg.com/vue/dist/vue.min.js"></script>
+  <script type="text/javascript" src="6.1-input.js">   </script>
+
+
+</html>

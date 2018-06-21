@@ -50,10 +50,13 @@ class Base{
     /**
      * [initNumber 初始化号码]
      * @return {[type]} [description]
+     * wq: 貌似其他地方没有用到
      */
     initNumber(){
         for( let i=1;i<12;i++){
             // number 是一个 Set 数据结构,不允许重复号码
+            // 这里能够得到 lottery中的 number是因为 继承的关系
+            // string.padStart(maxStringLength, startFillString)   => es7语法
             this.number.add((''+i).padStart(2,'0'));
         }
     }
@@ -136,6 +139,7 @@ class Base{
         let $cur = $(e.currentTarget);
         // 返回当前选中集合的索引
         let index = $cur.index();
+        console.log(index, "index+")
         $('.boll-list .btn-boll').removeClass('btn-boll-active');
 
         // 全选
@@ -197,6 +201,7 @@ class Base{
         let self = this;
         // 拿到选择的号码，\d 查找数字，[01 ,02, 03, 04]
         let $active = $('.boll-list .btn-boll-active').text().match(/\d{2}/g);
+        console.log($active, "$active+");
         let active = $active ? $active.length : 0;
         let count = self.computeCount(active, self.cur_play);
 
@@ -229,7 +234,7 @@ class Base{
         self.getTotal();
     }
 
-    getCount() {
+      getCount() {
         let self = this;
         let active = $('.boll-list .btn-boll-active').length;
         // 当前选中的注数

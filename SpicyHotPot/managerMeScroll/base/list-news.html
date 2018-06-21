@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" href="css/mescroll.min.css">
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: white
+    }
+
+    ul {
+      list-style-type: none
+    }
+
+    a {
+      text-decoration: none;
+      color: #18B4FE;
+    }
+
+    /*模拟的标题*/
+
+    .header {
+      z-index: 9990;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 44px;
+      line-height: 44px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+      background-color: white;
+    }
+
+    .header .btn-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 12px;
+      line-height: 22px;
+    }
+
+    .header .btn-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0 12px;
+    }
+
+    /*说明*/
+
+    .mescroll .notice {
+      font-size: 14px;
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+      color: #555;
+    }
+
+    /*列表*/
+
+    .mescroll {
+      position: fixed;
+      top: 44px;
+      bottom: 0;
+      height: auto;
+    }
+
+    /*展示上拉加载的数据列表*/
+
+    .news-list li {
+      padding: 16px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .news-list .new-content {
+      font-size: 14px;
+      margin-top: 6px;
+      margin-left: 10px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <!--标题-->
+  <p class="header">
+    <a class="btn-left" href="#">main</a>
+      新闻列表
+    <a class="btn-right" href="list-products.html">list-products</a>
+  </p>
+
+  <!--滑动区域-->
+  <div id="mescroll" class="mescroll">
+    <p class="notice">本Demo的下拉刷新: 添加新数据到列表顶部</p>
+    <ul id="newsList" class="news-list"> </ul>
+  </div>
+</body>
+
+<script src="src/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+<!--mescroll本身不依赖jq,这里为了模拟发送ajax请求-->
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="list-news.js">
+
+</script>
+</html>

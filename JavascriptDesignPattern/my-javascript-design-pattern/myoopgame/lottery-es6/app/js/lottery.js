@@ -12,15 +12,17 @@ import Timer from './lottery/timer.js';
  * @param  {[type]} target [description]
  * @param  {[type]} source [description]
  * @return {[type]}        [description]
+ * wq: 理解 将 source 拷贝给了 target
  */
 const copyProperties = function(target, source) {
-    // Reflect.ownKeys()方法返回target对象自己的属性键的数组。
+    // Reflect.ownKeys()方法返回target对象的属性[键名] ，以数组形式承接
     // wq As => const data= {sname: "wq", sage: 11}    Reflect.ownKeys(data) => [sname, sage]
     for (let key of Reflect.ownKeys(source)) {
         if (key !== 'constructor' && key !== 'prototype' && key !== 'name') {
             // 获取指定对象的自身属性描述符
             let desc = Object.getOwnPropertyDescriptor(source, key);
-            // wq 本质上就是创建对象，给对象赋属性和值 As => https://segmentfault.com/a/1190000007434923
+            // wq 本质上就是创建对象，给对象赋属性和值
+            // As => https://segmentfault.com/a/1190000007434923
             Object.defineProperty(target, key, desc);
         }
     }
@@ -36,7 +38,7 @@ const mix = function(...rest) {
     for (let item of rest) {
         copyProperties(Mix, item);
         copyProperties(Mix.prototype, item.prototype);
-    }
+    };
     return Mix;
 };
 
@@ -100,6 +102,7 @@ class Lottery extends mix(Base, Calculate, Interface, Timer) {
             // 更新当前期号
             $(self.issue_el).text(res.issue);
             // 更新倒计时
+            // wq: 这里用到了 timer.js中的方法 countdown传递的是实参
             self.countdown(res.end_time, function(time) {
                 $(self.countdown_el).html(time);
             }, function() {

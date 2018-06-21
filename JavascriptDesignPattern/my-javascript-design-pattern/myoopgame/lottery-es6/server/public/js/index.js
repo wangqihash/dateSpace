@@ -62,7 +62,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var syy = new _lottery2.default();
-	console.log(syy);
 
 /***/ }),
 /* 2 */
@@ -8751,9 +8750,10 @@
 	 * @param  {[type]} target [description]
 	 * @param  {[type]} source [description]
 	 * @return {[type]}        [description]
+	 * wq: 理解 将 source 拷贝给了 target
 	 */
 	var copyProperties = function copyProperties(target, source) {
-	    // Reflect.ownKeys()方法返回target对象自己的属性键的数组。
+	    // Reflect.ownKeys()方法返回target对象的属性[键名] ，以数组形式承接
 	    // wq As => const data= {sname: "wq", sage: 11}    Reflect.ownKeys(data) => [sname, sage]
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
@@ -8766,7 +8766,8 @@
 	            if (key !== 'constructor' && key !== 'prototype' && key !== 'name') {
 	                // 获取指定对象的自身属性描述符
 	                var desc = Object.getOwnPropertyDescriptor(source, key);
-	                // wq 本质上就是创建对象，给对象赋属性和值 As => https://segmentfault.com/a/1190000007434923
+	                // wq 本质上就是创建对象，给对象赋属性和值
+	                // As => https://segmentfault.com/a/1190000007434923
 	                Object.defineProperty(target, key, desc);
 	            }
 	        }
@@ -8826,6 +8827,7 @@
 	        }
 	    }
 
+	    ;
 	    return Mix;
 	};
 
@@ -8904,6 +8906,7 @@
 	                // 更新当前期号
 	                (0, _jquery2.default)(self.issue_el).text(res.issue);
 	                // 更新倒计时
+	                // wq: 这里用到了 timer.js中的方法 countdown传递的是实参
 	                self.countdown(res.end_time, function (time) {
 	                    (0, _jquery2.default)(self.countdown_el).html(time);
 	                }, function () {
@@ -18997,6 +19000,7 @@
 	        /**
 	         * [initNumber 初始化号码]
 	         * @return {[type]} [description]
+	         * wq: 貌似其他地方没有用到
 	         */
 
 	    }, {
@@ -19004,6 +19008,8 @@
 	        value: function initNumber() {
 	            for (var i = 1; i < 12; i++) {
 	                // number 是一个 Set 数据结构,不允许重复号码
+	                // 这里能够得到 lottery中的 number是因为 继承的关系
+	                // string.padStart(maxStringLength, startFillString)   => es7语法
 	                this.number.add(('' + i).padStart(2, '0'));
 	            }
 	        }
@@ -19147,6 +19153,7 @@
 	            var $cur = (0, _jquery2.default)(e.currentTarget);
 	            // 返回当前选中集合的索引
 	            var index = $cur.index();
+	            console.log(index, "index+");
 	            (0, _jquery2.default)('.boll-list .btn-boll').removeClass('btn-boll-active');
 
 	            // 全选
@@ -19214,6 +19221,7 @@
 	            var self = this;
 	            // 拿到选择的号码，\d 查找数字，[01 ,02, 03, 04]
 	            var $active = (0, _jquery2.default)('.boll-list .btn-boll-active').text().match(/\d{2}/g);
+	            console.log($active, "$active+");
 	            var active = $active ? $active.length : 0;
 	            var count = self.computeCount(active, self.cur_play);
 
@@ -19436,6 +19444,8 @@
 	                    },
 	                    dataType: 'json',
 	                    success: function success(res) {
+	                        //wq: 这里的作用好像是对lottert中 promise.then()的调用
+	                        //  这里的self指的就是 lottery对象 由于继承关系
 	                        resolve.call(self, res);
 	                    },
 	                    error: function error(err) {

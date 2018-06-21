@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>promise-test</title>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="output"></div>
+
+  <script type="text/babel" >
+
+    {
+      console.log("==========let==========");
+
+      var a = [];
+
+      for(let i = 0; i< 6; i++) {
+        // console.log(i);
+        a[i] = function() {
+          // console.log(i);
+        }
+      };
+
+      // a[4]();
+
+      // 这里说明 for循环中的开辟的 2块作用域
+      // => 循环变量的那部分是一个父作用域
+      // => 循环体内部是一个单独的子作用域。
+      for (let i = 0; i < 3; i++) {
+        console.log(i, "first");
+        let i = 'abc';
+        console.log(i);
+      }
+
+    }
+
+    {
+      console.log("==========Promise==========")
+        /**
+       *
+       * 什么是promise
+       *  能够解决 回调嵌套的问题， 他是用 then的链式调用方法实现
+       *  每一个异步任务会立刻返回一个Promise对象， promise对象有一个then方法，允许指定回调函数，在异步任务完后调用
+       */
+    //   function timeout(ms) {
+    //     return new Promise((resolve, reject) => {
+    //       console.log(1);
+    //       setTimeout(resolve, ms, 'done');
+    //       console.log(2);
+    //     });
+    //   };
+    //   timeout(1000).then((value) => { console.log(value); });
+    //
+    //   // console.log(10);
+    //   setTimeout(()=>{console.log(10.5)},1000);
+    //   // console.log(20);
+    //
+    // }
+
+
+    // {
+      // class A {
+      //   constructor() {
+      //     console.log(this, "A111")
+      //   }
+      //   say() {console.log(this, "A.this")}
+      //   see() {console.log("see")}
+      // }
+      //
+      // class a extends A {
+      //   constructor() {
+      //     super()
+      //     // console.log(this, "a")
+      //   }
+      //   myFn() {
+      //     console.log(this, "new a()")
+      //   }
+      // }
+      //
+      //  new A()     //得到的将是 A里的方法
+      // new a().myFn()   // 这里会先得到自身的方法，在通过__proto__可得到父类的方法
+      /** 上面的this 指向都是 new a()的对象*/
+
+    /**
+     *  关于Es6继承中this的简单理解
+     *    a => A
+     *    如果 new a()  那么A中的 constructor后执行一次，但此时A中的this指向的还是 a
+     *    如果 new A()  new a() 那么A 和 a 将会是俩个对象，他们的this指向也就不相等了
+     *
+     */
+    }
+  </script>
+
+
+
+</body>
+
+</html>

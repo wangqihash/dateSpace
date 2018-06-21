@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+		<link rel="stylesheet" href="css/mescroll.min.css">
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				-webkit-touch-callout:none;
+				-webkit-user-select:none;
+				-webkit-tap-highlight-color:transparent;
+			}
+			body{background-color: white}
+			ul{list-style-type: none}
+			a {text-decoration: none;color: #18B4FE;}
+
+			/*模拟的标题*/
+			.header{
+				z-index: 9990;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 44px;
+				line-height: 44px;
+				text-align: center;
+				border-bottom: 1px solid #eee;
+				background-color: white;
+			}
+			.header .btn-left{
+				position: absolute;
+				top: 0;
+				left: 0;
+				line-height: 22px;
+				padding:12px;
+			}
+			/*模拟的轮播*/
+			.swiper{
+				width: 100%;
+				vertical-align: bottom;
+			}
+			/*菜单*/
+			.nav{
+				text-align: center;
+				border-bottom: 1px solid #ddd;
+			}
+			.nav p{
+				display: inline-block;
+				width: 30%;
+				padding: 10px 0;
+			}
+			.nav .active{
+				border-bottom: 1px solid #FF6990;
+				color: #FF6990;
+			}
+			/*列表*/
+			.mescroll{
+				position: fixed;
+				top: 44px;
+				bottom: 0;
+				height: auto;
+			}
+			/*展示上拉加载的数据列表*/
+			.data-list li{
+				position: relative;
+				padding: 10px 8px 10px 120px;
+				border-bottom: 1px solid #eee;
+			}
+			.data-list .pd-img{
+				position: absolute;
+				left: 18px;
+				top: 18px;
+				width: 80px;
+				height: 80px;
+			}
+			.data-list .pd-name{
+				font-size: 16px;
+				line-height: 20px;
+				height: 40px;
+				overflow: hidden;
+			}
+			.data-list .pd-price{
+				margin-top: 8px;
+				color: red;
+			}
+			.data-list .pd-sold{
+				font-size: 12px;
+				margin-top: 8px;
+				color: gray;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--标题-->
+		<p class="header">
+      <a class="btn-left" href="#">main</a>
+      MeScroll所有配置项 (详见代码)
+    </p>
+		<!--滑动区域-->
+		<div id="mescroll" class="mescroll">
+			<!--模拟的轮播,菜单 可在down.callback中配置刷新轮播数据-->
+			<img class="swiper" src="img/swiper.jpg"/>
+			<!--筛选条件; 模拟列表的重置和演示空布局的使用-->
+			<div class="nav">
+				<p class="active" i="0">全部</p>
+				<p i="1">奶粉</p>
+				<p i="2">图书</p>
+			</div>
+			<!--展示上拉加载的数据列表-->
+			<ul id="dataList" class="data-list">
+
+			</ul>
+		</div>
+	</body>
+
+	<script src="src/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+	<!--mescroll本身不依赖jq,这里为了模拟发送ajax请求-->
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8" src="mescroll-options.js"> </script>
+
+</html>
