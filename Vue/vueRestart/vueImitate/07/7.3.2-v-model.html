@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>7.3-v-model</title>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <h4>v-model 用在input上时</h4>
+      <p>总数： {{sth}}</p>
+      <span>v-model：语法糖 </span>  <input type="text" value="" v-model="sth" />
+      <p></p>
+      <span>v-model：剖析原理 </span>  <input type="text" :value="sth" @input="sth = $event.target.value" />
+
+      <h4>v-model 用在组件上时:</h4>
+      <v-model-understand v-model="sth" :parent-to-child="sth"></v-model-understand>
+
+    </div>
+
+  </body>
+  <script src="http://unpkg.com/vue/dist/vue.min.js"></script>
+  <script type="text/javascript" src="7.3.2-v-model.js"></script>
+</html>

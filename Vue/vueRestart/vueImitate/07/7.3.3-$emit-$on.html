@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>7.3.3-$emit-$on</title>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <p>父子进行的交互</p>
+      <p>{{message}}</p>
+      <mutual-component ref="mutualComponentRef" ></mutual-component>
+
+      <p>==========</p>
+
+      <button type="button" name="button" @click="handleRef">父级=>子级</button>
+    </div>
+
+  </body>
+  <script src="http://unpkg.com/vue/dist/vue.min.js"></script>
+  <script type="text/javascript" src="7.3.3-$emit-$on.js"></script>
+</html>

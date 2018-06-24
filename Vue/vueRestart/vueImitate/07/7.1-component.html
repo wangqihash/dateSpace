@@ -11,6 +11,11 @@
       <global-component></global-component>
       <local-component></local-component>
       <p >{{tempData}}</p>
+      <div style="width:100%; height:100%; padding:10px; background:pink;">
+        <p>这里表示：hashNum 来自new Vue() 实例中的 data数据， 说明和component中的数据已区分开使用 </p>
+        <button @click="hashNum++">{{hashNum}} || 来自vue中的hashNum</button>
+      </div>
+
     </div>
 
 

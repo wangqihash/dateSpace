@@ -1,6 +1,7 @@
 
 var data = {
   counter: 0,
+
 };
 
 //全局组件 [且组件的声明必须在实例Vue之前]
@@ -26,7 +27,8 @@ var localComponent = {
 var app = new Vue({
   el: "#app",
   data: {
-    tempData:"来自new Vue的tempData"
+    tempData:"来自new Vue的tempData",
+    hashNum: 100,
   },
   components: {
     "local-component": localComponent,
@@ -42,9 +44,6 @@ var app = new Vue({
 var app1 = new Vue({
   el: "#app1",
   data: {},
-  methods: {
-  },
-  computed: {
-
-  },
+  methods: {},
+  computed: {},
 })

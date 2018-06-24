@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>7.2-uniderction-data-flow</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>{{initcount}} == 来自实例的initcount</div>
+      <children-component :children-count="initcount" :children-component-data="exanpleDes" temp-string-data="局部的静态数据"></children-component>
+      <br>
+      <global-component :width="500" form-exanple-string="静态字符串" :form-exanple="exanpleDes"></global-component>
+    </div>
+
+
+
+  </body>
+  <script src="http://unpkg.com/vue/dist/vue.min.js"></script>
+  <script type="text/javascript" src="7.2-uniderction-data-flow.js">  </script>
+</html>
