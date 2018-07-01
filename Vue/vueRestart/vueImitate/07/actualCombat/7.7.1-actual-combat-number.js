@@ -4,9 +4,10 @@ var isValueNumber = function(value) {
 
 var inputNumber = {
   template: `<div class="input-number">
-                <input type="text" :value="currentValue" @change="handleChange"/>
+                <input type="text" :value="currentValue" @change="handleChange" @keydown="pgUporDn"/>
                 <button @click="handleDown()" :disabled="currentValue <= min"> - </button>
                 <button @click="handleUp()" :disabled="currentValue >= max"> + </button>
+                <button @click="handleSetProp()">+10</button>
               </div>`,
 
   props: {
@@ -70,7 +71,7 @@ var inputNumber = {
     },
     handleChange(event) {
       var val = event.target.value.trim();
-      // console.log(val, "handleChange");
+      console.log(val, "handleChange");
       var max = this.max;
       var min = this.min;
       if (isValueNumber(val)) {
@@ -85,11 +86,27 @@ var inputNumber = {
         event.target.value = this.currentValue;
       };
     },
+    pgUporDn(event){
+        switch(event.keyCode){
+          case 38:
+              this.handleUp();
+              break;
+          case 40:
+              this.handleDown();
+              break;
+          default:
+              break;
+        };
+    },
 
-    mounted() {
-      this.updateValue(this.value);
-    }
+    handleSetProp(){
+      this.currentValue += 10;
+    },
 
+  },
+  //
+  mounted() {
+    this.updateValue(this.value);
   }
 };
 

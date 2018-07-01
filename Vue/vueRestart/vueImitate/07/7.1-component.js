@@ -25,7 +25,7 @@ var localComponent = {
   }
 };
 var app = new Vue({
-  el: "#app",
+  el: "app",
   data: {
     tempData:"来自new Vue的tempData",
     hashNum: 100,
@@ -42,7 +42,7 @@ var app = new Vue({
 
 
 var app1 = new Vue({
-  el: "#app1",
+  el: "app1",
   data: {},
   methods: {},
   computed: {},

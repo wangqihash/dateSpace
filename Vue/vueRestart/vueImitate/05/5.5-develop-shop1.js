@@ -45,7 +45,7 @@ var showDate = [
 ];
 
 var app = new Vue({
-  el: "#app",
+  el: "app",
   data: {
     showDate: showDate,
     ischeckSele: false,
@@ -71,7 +71,7 @@ var app = new Vue({
       item.check = !item.check;
     },
     checkSeleAll() {
-      let isAll = document.querySelector('#all');
+      let isAll = document.querySelector('all');
       if (isAll.checked == true) {
         this.showDate.forEach(function(item, index) {
           item.check = true;
@@ -83,8 +83,8 @@ var app = new Vue({
       }
     },
     selectCategory(seleselectcategory) {
-      let isSeleElect = document.querySelector('#isSeleElect');
-      let isSeleBook = document.querySelector('#isSeleBook');
+      let isSeleElect = document.querySelector('isSeleElect');
+      let isSeleBook = document.querySelector('isSeleBook');
 
       this.showDate.forEach(function(item, index) {
         if (seleselectcategory == "Electronics") {

@@ -40,7 +40,7 @@ Vue.component('global-component', {
 })
 
 var app = new Vue({
-  el: "#app",
+  el: "app",
   data: exanpleData,
   methods: {},
   computed: {},

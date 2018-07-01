@@ -7,7 +7,7 @@ var vModelUnderstand = {
 };
 
 var app = new Vue({
-  el: "#app",
+  el: "app",
   data: {
     sth: "0"
   },

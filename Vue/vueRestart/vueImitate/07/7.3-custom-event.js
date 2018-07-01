@@ -27,7 +27,7 @@ var dataMutal = {
 };
 
 var app = new Vue({
-  el: "#app",
+  el: "app",
   data: {
     total: 0,
   },

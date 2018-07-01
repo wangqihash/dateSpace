@@ -24,7 +24,7 @@ var mutualComponent = {
   }
 };
 var app = new Vue({
-  el: "#app",
+  el: "app",
   data: exampleData,
   mounted() {
     var self = this;

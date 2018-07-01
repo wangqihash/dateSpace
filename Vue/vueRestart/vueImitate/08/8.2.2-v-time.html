@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>实时时间转换指令</title>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <h5>现在时间:</h5>
+
+      <div v-time="timeNow"></div>
+      <br>
+      <h5>手动时间:</h5>
+      <div v-time="timeBefore"> </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- <script src="http://unpkg.com/vue/dist/vue.min.js"></script> -->
+  <script type="text/javascript" src="8.2.2-time.js">  </script>
+  <script type="text/javascript" src="8.2.2-v-time.js"> </script>
+</html>
